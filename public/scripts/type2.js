@@ -4,6 +4,8 @@ var cols = [
     { key: 'price', label: 'Price' }
 ];
 
+
+
 var data = [
     { name1:'jasmine',qty:5 ,price:5000},
     { name1:'justine',price:10000,qty:10},
