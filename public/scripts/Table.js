@@ -38,7 +38,7 @@ var Table = React.createClass({
         return data.map(function(item) {
             var cells = cols.map(function(colData) {
                 return <td> {item[colData.key]} </td>;
-              item.sort(sort_by('name1'));
+              {item[colData.key]}.sort(sort_by('name1', asec));
             });
             return <tr className='rows-cell' key={item.id}> {cells} </tr>;
         });
