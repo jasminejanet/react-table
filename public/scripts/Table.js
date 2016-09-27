@@ -17,10 +17,12 @@ var Table = React.createClass({
     render: function() {
         var headerComponents = this.getHeaders(),
             rowComponents = this.generateRows();
+            var sortComponents = this.getSortedRows();
         return (
             <table>
                 <thead> {headerComponents} </thead>
                 <tbody> {rowComponents} </tbody>
+              <tbody> {sortComponents} </tbody>
             </table>
         );
     },
@@ -38,12 +40,20 @@ var Table = React.createClass({
         return data.map(function(item) {
             var cells = cols.map(function(colData) {
                 return <td> {item[colData.key]} </td>;
-              {item[colData.key]}.sort(sort_by('name1', asec));
             });
             return <tr className='rows-cell' key={item.id}> {cells} </tr>;
         });
+    },
+
+    getSortedRows: function(cells) {
+       var sortedData = cells.sort(sort_by({item[colData.key]}: 'Quantity', asec));
+
     }
+  
 });
 
 React.render(<Table cols={cols} data={data}/>, document.getElementById('jas'));
+
+
+
 
