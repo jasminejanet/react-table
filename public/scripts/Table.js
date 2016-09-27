@@ -7,10 +7,10 @@ var cols = [
 
 var data = [
     { name1:'Jasmine',qty:5 ,price:5000},
-    { name1:'Justine',price:10000,qty:10},
-    { name1:'Justine',price:10000,qty:10, purQty:5},
-    { name1:'Justine',price:10000,qty:10, purQty:4},
-    { qty:15 ,price:15000,name1:'Jacob'}
+    { name1:'Annie',price:10000,qty:10},
+    { name1:'Kevin',price:10000,qty:10, purQty:5},
+    { name1:'George',price:10000,qty:10, purQty:4},
+    { qty:15 ,price:15000,name1:'Suganthi'}
 ];
 
 var Table = React.createClass({
@@ -38,6 +38,7 @@ var Table = React.createClass({
         return data.map(function(item) {
             var cells = cols.map(function(colData) {
                 return <td> {item[colData.key]} </td>;
+              item.sort(sort_by('name1'));
             });
             return <tr className='rows-cell' key={item.id}> {cells} </tr>;
         });
