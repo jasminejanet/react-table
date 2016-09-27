@@ -1,0 +1,13 @@
+.header-cell {
+	border: 1px solid black;
+	 padding: 5px;
+	 background-color:red; 
+}
+.rows-cell
+{
+	 border:1px solid black;
+	  padding: 10px; 
+	  background-color:pink;
+}
+
+
