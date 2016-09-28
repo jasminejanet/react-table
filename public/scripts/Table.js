@@ -14,7 +14,16 @@ var data = [
 ];
 
 var Table = React.createClass({
-  render: function () {
+  getInitialState: function () {
+    return {
+      SortKey = name1,
+      SortOrder = true;
+  }
+  onClickheaderComponents(key)
+    {
+      onClick this.states;
+    }
+
     var headerComponents = this.getHeaders();
     var rowComponents = this.generateRows();
     return (
@@ -28,13 +37,17 @@ var Table = React.createClass({
   getHeaders: function () {
     var cols = this.props.cols;
     return cols.map(function (colData) {
-      return <th className='header-cell' key={colData.key}> {colData.label} </th>;
+      return <th className='header-cell' key=onClick.function(
+      (onClickheaderComponents={colData.key})
+      )>
+      {colData.label} </th>;
     });
   },
 
   generateRows: function () {
     var cols = this.props.cols,
       data = this.props.data;
+
     data.sort(function (ov, nv) {
       if (ov.name1 < nv.name1) return -1;
       if (ov.name1 > nv.name1) return 1;
