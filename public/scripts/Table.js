@@ -38,13 +38,14 @@ var Table = React.createClass({
 
   getHeaders: function () {
     var cols = this.props.cols;
+    var self = this;
     return cols.map(function (colData) {
       return (
         <th
           className='header-cell'
-          key={}
+          key={colData.key}
           onClick={function (e) {
-            this.onHeaderClick(colData.key);
+            self.onHeaderClick(colData.key);
           }}
         >
           {colData.label}
