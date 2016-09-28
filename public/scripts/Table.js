@@ -20,59 +20,55 @@ var Table = React.createClass({
       SortOrder: true
     }
   },
-  onHeaderClick (key)
-  {
+
+  onHeaderClick: function (key) {
     console.log(key);
   },
 
-
-  render: funtion()
-{
-  var headerComponents = this.getHeaders();
-  var rowComponents = this.generateRows();
-  return (
-    <table>
-      <thead> {headerComponents} </thead>
-      <tbody> {rowComponents} </tbody>
-    </table>
-  );
-},
-
-
-getHeaders: function () {
-  var cols = this.props.cols;
-  return cols.map(function (colData) {
+  render: function () {
+    var headerComponents = this.getHeaders();
+    var rowComponents = this.generateRows();
     return (
-      <th
-        className='header-cell'
-        key={}
-        onClick={function (e) {
-          this.onHeaderClick(colData.key);
-        }}
-      >
-        {colData.label}
-      </th>
+      <table>
+        <thead> {headerComponents} </thead>
+        <tbody> {rowComponents} </tbody>
+      </table>
     );
+  },
 
-  });
-},
-
-generateRows: function () {
-  var cols = this.props.cols,
-    data = this.props.data;
-
-  data.sort(function (ov, nv) {
-    if (ov.name1 < nv.name1) return -1;
-    if (ov.name1 > nv.name1) return 1;
-    return 0;
-  });
-  return data.map(function (item) {
-    var cells = cols.map(function (colData) {
-      return <td> {item[colData.key]} </td>;
+  getHeaders: function () {
+    var cols = this.props.cols;
+    return cols.map(function (colData) {
+      return (
+        <th
+          className='header-cell'
+          key={}
+          onClick={function (e) {
+            this.onHeaderClick(colData.key);
+          }}
+        >
+          {colData.label}
+        </th>
+      );
     });
-    return <tr className='rows-cell' key={item.id}> {cells} </tr>;
-  });
-}
+  },
+
+  generateRows: function () {
+    var cols = this.props.cols;
+    var data = this.props.data;
+
+    data.sort(function (ov, nv) {
+      if (ov.name1 < nv.name1) return -1;
+      if (ov.name1 > nv.name1) return 1;
+      return 0;
+    });
+    return data.map(function (item) {
+      var cells = cols.map(function (colData) {
+        return <td> {item[colData.key]} </td>;
+      });
+      return <tr className='rows-cell' key={item.id}> {cells} </tr>;
+    });
+  }
 });
 
 React.render(<Table cols={cols} data={data}/>, document.getElementById('jas'));
