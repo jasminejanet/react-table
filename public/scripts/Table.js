@@ -45,15 +45,19 @@ var Table = React.createClass({
         });
     },
 
-    getSortedRows: function(cells) {
-       var sortedData = cells.sort(sort_by({item[colData.key]}: 'Quantity', asec));
-
+    getSortedRows: function() {
+      var cols = this.props.cols,
+          data = this.props.data;
+      return data.map(function(item) {
+          var cells = cols.map(function(colData) {
+          var sortedData = cells.sort(sort_by([colData.key]):'Quantity',asec);
+               return <tr><td>{cells}</td></tr>;
+          });
+          return sortedRows;
+      });
     }
-  
 });
 
 React.render(<Table cols={cols} data={data}/>, document.getElementById('jas'));
-
-
 
 
