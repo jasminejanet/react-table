@@ -57,7 +57,4 @@ var Table = React.createClass({
       });
     }
 });
-
 React.render(<Table cols={cols} data={data}/>, document.getElementById('jas'));
-
-
