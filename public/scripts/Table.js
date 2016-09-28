@@ -36,8 +36,8 @@ var Table = React.createClass({
     var cols = this.props.cols,
       data = this.props.data;
     data.sort(function (ov, nv) {
-      if (ov.qty < nv.qty) return -1;
-      if (ov.qty > nv.qty) return 1;
+      if (ov.name1 < nv.name1) return -1;
+      if (ov.name1 > nv.name1) return 1;
       return 0;
     });
     return data.map(function (item) {
