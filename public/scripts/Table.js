@@ -22,7 +22,12 @@ var Table = React.createClass({
   },
 
   onHeaderClick: function (key) {
-    console.log(key);
+    var SortOrder = this.state.SortOrder;
+    this.setState({
+      sortKey: key,
+      sortOrder: sortOrder
+    });
+
   },
 
   render: function () {
@@ -54,7 +59,10 @@ var Table = React.createClass({
     });
   },
 
-  generateRows: function () {
+  generateRows: function (state) {
+    var SortOrder = state.SortOrder;
+    var SortKey = state.SortKey;
+
     var cols = this.props.cols;
     var data = this.props.data;
 
